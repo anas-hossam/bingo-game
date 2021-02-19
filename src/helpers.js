@@ -1,4 +1,5 @@
-const calculateWinner = squares => {
+const calculateBingo = (squares, activeLines) => {
+    console.log('actoveLines ', activeLines);
     const lines = [
         // rows
         [0, 1, 2, 3, 4],
@@ -10,6 +11,7 @@ const calculateWinner = squares => {
         [0, 5, 10, 15, 20],
         [1, 6, 11, 16, 21],
         [2, 7, 12, 17, 23],
+        [3, 8, 13, 18, 23],
         [4, 9, 14, 19, 24],
         // diagonal
         [0, 6, 12, 18, 24],
@@ -19,13 +21,14 @@ const calculateWinner = squares => {
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c, d, e] = lines[i];
         if (
+            (activeLines.indexOf(i) === -1) &&
             squares[a] &&
             squares[a] === squares[b] &&
             squares[a] === squares[c] &&
             squares[a] === squares[d] &&
             squares[a] === squares[e]
         ) {
-            return squares[a];
+            return { line: lines[i], lineNumber: i };
         }
     }
 
@@ -50,37 +53,37 @@ const shuffleArray = array => {
 
 const getRandomCard = () => {
     const card = [
-        { name: 'dummy value 1', is_active: false },
-        { name: 'dummy value 2', is_active: false },
-        { name: 'dummy value 3', is_active: false },
-        { name: 'dummy value 4', is_active: false },
-        { name: 'dummy value 5', is_active: false },
-        { name: 'dummy value 6', is_active: false },
-        { name: 'dummy value 7', is_active: false },
-        { name: 'dummy value 8', is_active: false },
-        { name: 'dummy value 9', is_active: false },
-        { name: 'dummy value 10', is_active: false },
-        { name: 'dummy value 11', is_active: false },
-        { name: 'dummy value 12', is_active: false },
-        { name: 'dummy value 13', is_active: false },
-        { name: 'dummy value 14', is_active: false },
-        { name: 'dummy value 15', is_active: false },
-        { name: 'dummy value 16', is_active: false },
-        { name: 'dummy value 17', is_active: false },
-        { name: 'dummy value 18', is_active: false },
-        { name: 'dummy value 19', is_active: false },
-        { name: 'dummy value 20', is_active: false },
-        { name: 'dummy value 21', is_active: false },
-        { name: 'dummy value 22', is_active: false },
-        { name: 'dummy value 23', is_active: false },
-        { name: 'dummy value 24', is_active: false },
-        { name: 'dummy value 25', is_active: false },
+        { name: 'dummy value 1', is_active: false, is_bingo: false },
+        { name: 'dummy value 2', is_active: false, is_bingo: false },
+        { name: 'dummy value 3', is_active: false, is_bingo: false },
+        { name: 'dummy value 4', is_active: false, is_bingo: false },
+        { name: 'dummy value 5', is_active: false, is_bingo: false },
+        { name: 'dummy value 6', is_active: false, is_bingo: false },
+        { name: 'dummy value 7', is_active: false, is_bingo: false },
+        { name: 'dummy value 8', is_active: false, is_bingo: false },
+        { name: 'dummy value 9', is_active: false, is_bingo: false },
+        { name: 'dummy value 10', is_active: false, is_bingo: false },
+        { name: 'dummy value 11', is_active: false, is_bingo: false },
+        { name: 'dummy value 12', is_active: false, is_bingo: false },
+        { name: 'dummy value 13', is_active: false, is_bingo: false },
+        { name: 'dummy value 14', is_active: false, is_bingo: false },
+        { name: 'dummy value 15', is_active: false, is_bingo: false },
+        { name: 'dummy value 16', is_active: false, is_bingo: false },
+        { name: 'dummy value 17', is_active: false, is_bingo: false },
+        { name: 'dummy value 18', is_active: false, is_bingo: false },
+        { name: 'dummy value 19', is_active: false, is_bingo: false },
+        { name: 'dummy value 20', is_active: false, is_bingo: false },
+        { name: 'dummy value 21', is_active: false, is_bingo: false },
+        { name: 'dummy value 22', is_active: false, is_bingo: false },
+        { name: 'dummy value 23', is_active: false, is_bingo: false },
+        { name: 'dummy value 24', is_active: false, is_bingo: false },
+        { name: 'dummy value 25', is_active: false, is_bingo: false },
     ];
 
     return shuffleArray(card);
 };
 
 export {
-    calculateWinner,
+    calculateBingo,
     getRandomCard,
 };
