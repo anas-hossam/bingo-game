@@ -1,5 +1,4 @@
 const calculateBingo = (squares, activeLines) => {
-    console.log('actoveLines ', activeLines);
     const lines = [
         // rows
         [0, 1, 2, 3, 4],
@@ -10,7 +9,7 @@ const calculateBingo = (squares, activeLines) => {
         // columns
         [0, 5, 10, 15, 20],
         [1, 6, 11, 16, 21],
-        [2, 7, 12, 17, 23],
+        [2, 7, 12, 17, 22],
         [3, 8, 13, 18, 23],
         [4, 9, 14, 19, 24],
         // diagonal
