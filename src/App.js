@@ -3,6 +3,9 @@ import Game from "./components/Game";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { useState } from "react";
 
+import background from "./images/bingo.jpeg";
+import otherBackground from "./images/bingo2.jpg";
+
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 function App() {
@@ -11,12 +14,15 @@ function App() {
   const activeGames = Array(gameCount).fill(true);
 
   return (
-    <div>
+    <div style={{ 
+      background: `url(${background}) right bottom no-repeat, url(${otherBackground}) left top repeat`,
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover'
+      }}>
       <button style={{
         height: '30px',
         fontWeight: '600',
         fontSize: '14px',
-        display: 'flex',
         alignItems: 'center',
         margin: '10px',
         color: 'darkgreen'
