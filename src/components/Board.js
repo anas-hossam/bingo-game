@@ -4,9 +4,9 @@ import Square from "./Square";
 import EmptySquare from "./EmptySqaure";
 
 const style = {
-    border: '4px solid darkblue',
+    border: '2px solid darkblue',
     borderRadius: '10px',
-    width: '82%',
+    width: '92%',
     height: '45%',
     margin: '50px auto',
     display: 'grid',

@@ -2,9 +2,9 @@ import React from "react";
 
 const style = {
     fontFamily: 'Monospace',
-    border: '2px solid darkblue',
-    fontSize: '15px',
-    fontWeight: '500',
+    border: '1px solid darkblue',
+    fontSize: '10px',
+    fontWeight: '300',
     cursor: 'pointer',
     outline: 'none',
 };
