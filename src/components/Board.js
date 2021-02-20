@@ -4,7 +4,7 @@ import Square from "./Square";
 import EmptySquare from "./EmptySqaure";
 
 const style = {
-    border: '2px solid darkblue',
+    border: '4px solid darkblue',
     borderRadius: '10px',
     width: '92%',
     height: '45%',
