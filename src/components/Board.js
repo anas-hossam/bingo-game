@@ -6,9 +6,9 @@ import EmptySquare from './EmptySqaure';
 const style = {
     border: '4px solid darkblue',
     borderRadius: '10px',
-    width: '400px',
-    height: '400px',
-    margin: '10px auto',
+    width: '82%',
+    height: '45%',
+    margin: '50px auto',
     display: 'grid',
     gridTemplate: 'repeat(5, 1fr) / repeat(5, 1fr)'
 };

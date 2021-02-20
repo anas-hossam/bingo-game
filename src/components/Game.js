@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+
 import Board from './Board';
 
 import { getRandomCard, calculateBingo } from "../helpers";
@@ -63,10 +64,10 @@ const Game = () => {
 
     return (
         <>
-        <Board squares={history[stepNumber]} onClick={handleClick} />
-        <div style={styles}>
-            {renderMoves()}
-        </div>
+            <Board squares={history[stepNumber]} onClick={handleClick} />
+            <div style={styles}>
+                {renderMoves()}
+            </div>
         </>
     )
 };
