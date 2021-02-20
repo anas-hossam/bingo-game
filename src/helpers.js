@@ -1,4 +1,8 @@
 const calculateBingo = (squares, activeLines) => {
+    const squaresCopy = [...squares];
+    // make middle sqaure always active
+    squaresCopy[12] = true;
+
     const lines = [
         // rows
         [0, 1, 2, 3, 4],
@@ -19,13 +23,14 @@ const calculateBingo = (squares, activeLines) => {
 
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c, d, e] = lines[i];
+
         if (
             (activeLines.indexOf(i) === -1) &&
-            squares[a] &&
-            squares[a] === squares[b] &&
-            squares[a] === squares[c] &&
-            squares[a] === squares[d] &&
-            squares[a] === squares[e]
+            squaresCopy[a] &&
+            squaresCopy[a] === squaresCopy[b] &&
+            squaresCopy[a] === squaresCopy[c] &&
+            squaresCopy[a] === squaresCopy[d] &&
+            squaresCopy[a] === squaresCopy[e]
         ) {
             return { line: lines[i], lineNumber: i };
         }

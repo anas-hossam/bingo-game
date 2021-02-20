@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Square from './Square';
+import EmptySquare from './EmptySqaure';
 
 const style = {
     border: '4px solid darkblue',
@@ -13,8 +15,10 @@ const style = {
 
 const Board = ({ squares, onClick }) => (
     <div style={style}>
-        {squares.map((square, i) =>(
-            <Square key={i} value={square} onClick={() => onClick(i)} />
+        {squares.map((square, i) => (
+            i !== 12 ? 
+                <Square key={i} value={square} onClick={() => onClick(i)} /> :
+                <EmptySquare key={i} onClick={() => onClick(i)} />
         ))}
     </div>
 );
