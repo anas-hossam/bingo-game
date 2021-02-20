@@ -6,7 +6,7 @@ import Board from "./Board";
 import { getRandomCard, calculateBingo } from "../helpers";
 
 const styles = {
-    width: '165px',
+    width: '180px',
     height: '120px',
     margin: '20px auto',
     overflowX: 'hidden', 

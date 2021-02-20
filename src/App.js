@@ -3,8 +3,8 @@ import { useState } from "react";
 
 import Game from "./components/Game";
 
-import background from "./images/bingo.jpeg";
-import otherBackground from "./images/bingo2.jpg";
+import background from "./constants/images/bingo.jpeg";
+import otherBackground from "./constants/images/bingo2.jpg";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 

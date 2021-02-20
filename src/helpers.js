@@ -1,3 +1,5 @@
+import card from "./constants/card";
+
 const calculateBingo = (squares, activeLines) => {
     const squaresCopy = [...squares];
     // make middle sqaure always active
@@ -56,33 +58,6 @@ const shuffleArray = array => {
 }
 
 const getRandomCard = () => {
-    const card = [
-        { name: 'dummy value 1', is_active: false, is_bingo: false },
-        { name: 'dummy value 2', is_active: false, is_bingo: false },
-        { name: 'dummy value 3', is_active: false, is_bingo: false },
-        { name: 'dummy value 4', is_active: false, is_bingo: false },
-        { name: 'dummy value 5', is_active: false, is_bingo: false },
-        { name: 'dummy value 6', is_active: false, is_bingo: false },
-        { name: 'dummy value 7', is_active: false, is_bingo: false },
-        { name: 'dummy value 8', is_active: false, is_bingo: false },
-        { name: 'dummy value 9', is_active: false, is_bingo: false },
-        { name: 'dummy value 10', is_active: false, is_bingo: false },
-        { name: 'dummy value 11', is_active: false, is_bingo: false },
-        { name: 'dummy value 12', is_active: false, is_bingo: false },
-        { name: 'dummy value 13', is_active: false, is_bingo: false },
-        { name: 'dummy value 14', is_active: false, is_bingo: false },
-        { name: 'dummy value 15', is_active: false, is_bingo: false },
-        { name: 'dummy value 16', is_active: false, is_bingo: false },
-        { name: 'dummy value 17', is_active: false, is_bingo: false },
-        { name: 'dummy value 18', is_active: false, is_bingo: false },
-        { name: 'dummy value 19', is_active: false, is_bingo: false },
-        { name: 'dummy value 20', is_active: false, is_bingo: false },
-        { name: 'dummy value 21', is_active: false, is_bingo: false },
-        { name: 'dummy value 22', is_active: false, is_bingo: false },
-        { name: 'dummy value 23', is_active: false, is_bingo: false },
-        { name: 'dummy value 24', is_active: false, is_bingo: false },
-        { name: 'dummy value 25', is_active: false, is_bingo: false },
-    ];
 
     return shuffleArray(card);
 };

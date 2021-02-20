@@ -1,9 +1,10 @@
 import React from "react";
 
 const style = {
+    fontFamily: 'Monospace',
     border: '2px solid darkblue',
     fontSize: '15px',
-    fontWeight: '800',
+    fontWeight: '500',
     cursor: 'pointer',
     outline: 'none',
 };
