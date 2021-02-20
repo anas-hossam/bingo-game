@@ -1,7 +1,7 @@
-import Game from "./components/Game";
-
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { useState } from "react";
+
+import Game from "./components/Game";
 
 import background from "./images/bingo.jpeg";
 import otherBackground from "./images/bingo2.jpg";
@@ -33,7 +33,7 @@ function App() {
             return { w: 0, h: 5, x: 0, y: 1000, i: `${index}` };
           }),
           xs: activeGames.map((_game, index) => {
-            return { w: 6, h: 6, x: 5, y: 5, i: `${index}` };
+            return { w: 0, h: 6, x: 5, y: 5, i: `${index}` };
           }),
         }}
         breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
