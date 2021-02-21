@@ -2,15 +2,15 @@ import React from "react";
 
 const FONT_SIZE_MAPPER = {
   desktop: "16px",
-  tablet: "13px",
-  mobile: "8px",
+  tablet: "12px",
+  mobile: "7px",
 };
 
 const style = {
   fontFamily: "Monospace",
   color: "#323b67",
   border: "1px solid #706046",
-  fontWeight: "500",
+  fontWeight: "400",
   cursor: "pointer",
   outline: "none",
 };
