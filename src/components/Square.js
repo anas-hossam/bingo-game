@@ -2,8 +2,8 @@ import React from "react";
 
 const FONT_SIZE_MAPPER = {
   desktop: "16px",
-  tablet: "12px",
-  mobile: "7px",
+  tablet: "10px",
+  mobile: "6px",
 };
 
 const style = {
