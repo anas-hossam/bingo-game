@@ -13,11 +13,11 @@ const style = {
   gridTemplate: "repeat(5, 1fr) / repeat(5, 1fr)",
 };
 
-const Board = ({ squares, onClick }) => (
+const Board = ({ squares, layout, onClick }) => (
   <div style={style}>
     {squares.map((square, i) => (
       i !== 12 ? 
-        <Square key={i} value={square} onClick={() => onClick(i)} /> :
+        <Square key={i} value={square} layout={layout} onClick={() => onClick(i)} /> :
         <EmptySquare key={i} onClick={() => onClick(i)} />
     ))}
   </div>

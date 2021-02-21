@@ -12,6 +12,7 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const App = () => {
   const [gameCount, setGameCount] = useState(1);
+  const [currentLayout, setCurrentLayout] = useState("desktop");
 
   const activeGames = Array(gameCount).fill(true);
 
@@ -34,9 +35,13 @@ const App = () => {
       </button>
       <ResponsiveGridLayout
         layouts={getLayouts(activeGames)}
-        breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-        cols={{lg: 12, md: 10, sm: 6, xs: 4, xxs: 2}}>
-          {activeGames.map((_game, index) => <Game key={index.toString()} />)}
+        onLayoutChange={() => {
+          const currentMedia = window.innerWidth > 1200 ? "desktop" : "mobile";
+          setCurrentLayout(currentMedia);
+        }}
+        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}>
+          {activeGames.map((_game, index) => <Game layout={currentLayout} key={index.toString()} />)}
       </ResponsiveGridLayout>
     </div>
   );

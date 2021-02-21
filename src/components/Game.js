@@ -15,7 +15,7 @@ const styles = {
   listStyleType: "none",
 };
 
-const Game = () => {
+const Game = props => {
     const [history, setHistory] = useState([getRandomCard()]);
     const [stepNumber, setStepNumber] = useState(0);
     const [bingoLines, setBingoLines] = useState({
@@ -84,7 +84,7 @@ const Game = () => {
           type="emoji">
           <button onClick={reward.fetchSomeData} />
         </Reward>
-        <Board squares={history[stepNumber]} onClick={handleClick} />
+        <Board squares={history[stepNumber]} layout={props.layout} onClick={handleClick} />
         <div style={styles}>
           {renderMoves()}
         </div>

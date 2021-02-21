@@ -9,9 +9,10 @@ const style = {
   outline: "none",
 };
 
-const getStyle = active => {
+const getStyle = (active, layout) => {
   return {
     ...style,
+    fontSize: layout === "desktop" ? "15px": style.fontSize,
     background: active ? "royalblue" : "lightblue",
     textDecoration: active ? "line-through" : "none",
   };
@@ -19,8 +20,8 @@ const getStyle = active => {
 
 const bingoStyle = { ...style, background: "gold" };
 
-const Square = ({ onClick, value }) => (
-  <button style={value.is_bingo ? bingoStyle : getStyle(value.is_active)} onClick={onClick}>
+const Square = ({ value, layout, onClick }) => (
+  <button style={value.is_bingo ? bingoStyle : getStyle(value.is_active, layout)} onClick={onClick}>
     {value.name}
   </button>
 );
