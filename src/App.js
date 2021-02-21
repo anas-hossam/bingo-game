@@ -37,7 +37,9 @@ const App = () => {
       <ResponsiveGridLayout
         layouts={getLayouts(activeGames)}
         onLayoutChange={() => {
-          const currentMedia = window.innerWidth > 1200 ? "desktop" : "mobile";
+          let currentMedia = window.innerWidth > 1200 ? "desktop" : "tablet";
+          if(window.innerWidth <= 480) currentMedia = "mobile";
+
           setCurrentLayout(currentMedia);
         }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}

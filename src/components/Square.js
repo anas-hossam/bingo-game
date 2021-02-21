@@ -1,11 +1,16 @@
 import React from "react";
 
+const FONT_SIZE_MAPPER = {
+  desktop: "16px",
+  tablet: "13px",
+  mobile: "8px",
+};
+
 const style = {
   fontFamily: "Monospace",
   color: "#323b67",
   border: "1px solid #706046",
-  fontSize: "10px",
-  fontWeight: "900",
+  fontWeight: "500",
   cursor: "pointer",
   outline: "none",
 };
@@ -13,7 +18,7 @@ const style = {
 const getStyle = (active, layout) => {
   return {
     ...style,
-    fontSize: layout === "desktop" ? "15px": style.fontSize,
+    fontSize: FONT_SIZE_MAPPER[layout],
     background: active ? "#5a71b7" : "#fbedba",
     textDecoration: active ? "line-through" : "none",
   };
@@ -24,7 +29,7 @@ const bingoStyle = layout => {
     ...style,
     color: "#fbedba",
     background: "gold",
-    fontSize: layout === "desktop" ? "15px": style.fontSize,
+    fontSize: FONT_SIZE_MAPPER[layout],
   };
 };
 
