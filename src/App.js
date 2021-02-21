@@ -23,15 +23,16 @@ const App = () => {
       backgroundSize: "cover"
       }}>
       <button style={{
+        fontFamily: "Monospace",
         height: "30px",
         fontWeight: "600",
-        fontSize: "14px",
+        fontSize: "15px",
         alignItems: "center",
-        margin: "10px",
-        color: "darkgreen"
+        margin: "55px 40px",
+        color: "#562175",
         }} 
         onClick={() => setGameCount(gameCount + 1)}>
-          Add Game
+          Add Card
       </button>
       <ResponsiveGridLayout
         layouts={getLayouts(activeGames)}
@@ -40,8 +41,13 @@ const App = () => {
           setCurrentLayout(currentMedia);
         }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}>
-          {activeGames.map((_game, index) => <Game layout={currentLayout} key={index.toString()} />)}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+        rowHeight={150}
+        autoSize={true}
+        isDraggable={false}
+        isResizable={false}
+        measureBeforeMount={false}>
+            {activeGames.map((_game, index) => <Game layout={currentLayout} key={index.toString()} />)}
       </ResponsiveGridLayout>
     </div>
   );

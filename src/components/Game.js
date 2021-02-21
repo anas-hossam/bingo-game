@@ -15,12 +15,10 @@ const styles = {
   listStyleType: "none",
 };
 
-const Game = props => {
+const Game = ({ layout }) => {
     const [history, setHistory] = useState([getRandomCard()]);
     const [stepNumber, setStepNumber] = useState(0);
-    const [bingoLines, setBingoLines] = useState({
-      "0": []
-    });
+    const [bingoLines, setBingoLines] = useState({ "0": [] });
     const [reward, setReward] = useState({});
 
     const handleClick = i => {
@@ -41,6 +39,7 @@ const Game = props => {
       const bingoLinesCopy = {
         ...bingoLines
       };
+
       if (stepNumber) bingoLinesCopy[stepNumber] = bingoLinesCopy[stepNumber - 1];
       setBingoLines(bingoLinesCopy);
 
@@ -78,13 +77,17 @@ const Game = props => {
     );
 
     return (
-      <div style={{ textAlign: "center", width: "100%", height: "100%" }}>
+      <div style={{
+        textAlign: "center",
+        width: layout === "desktop" ? "60%" : "100%",
+        height: "100%",
+        }}>
         <Reward
           ref={(ref) => setReward(ref)}
           type="emoji">
           <button onClick={reward.fetchSomeData} />
         </Reward>
-        <Board squares={history[stepNumber]} layout={props.layout} onClick={handleClick} />
+        <Board squares={history[stepNumber]} layout={layout} onClick={handleClick} />
         <div style={styles}>
           {renderMoves()}
         </div>
