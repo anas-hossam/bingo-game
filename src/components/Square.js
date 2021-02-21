@@ -3,14 +3,14 @@ import React from "react";
 const FONT_SIZE_MAPPER = {
   desktop: "16px",
   tablet: "12px",
-  mobile: "8px",
+  mobile: "9px",
 };
 
 const style = {
   fontFamily: "Monospace",
   color: "#323b67",
   border: "1px solid #706046",
-  fontWeight: "400",
+  fontWeight: "600",
   cursor: "pointer",
   outline: "none",
 };
