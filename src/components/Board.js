@@ -15,10 +15,10 @@ const style = {
 
 const Board = ({ squares, layout, onClick }) => (
   <div style={style}>
-    {squares.map((square, i) => (
-      i !== 12 ? 
-        <Square key={i} value={square} layout={layout} onClick={() => onClick(i)} /> :
-        <EmptySquare key={i} onClick={() => onClick(i)} />
+    {squares.map((square, index) => (
+      index !== 12 ? 
+        <Square key={index} value={square} layout={layout} onClick={() => onClick(index)} /> :
+        <EmptySquare key={index} onClick={() => onClick(index)} />
     ))}
   </div>
 );

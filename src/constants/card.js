@@ -23,7 +23,6 @@ const card = [
     { name: "You will send the minutes?", is_active: false, is_bingo: false },
     { name: "sorry, i was on mute", is_active: false, is_bingo: false },
     { name: "can you repeat, please?", is_active: false, is_bingo: false },
-    { name: "i have problem with mic", is_active: false, is_bingo: false },
 ];
 
 export default card;
