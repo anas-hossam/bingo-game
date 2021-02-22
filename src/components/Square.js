@@ -1,7 +1,7 @@
 import React from "react";
 
 const FONT_SIZE_MAPPER = {
-  desktop: "16px",
+  desktop: "14px",
   tablet: "12px",
   mobile: "8px",
   basic: "20px",

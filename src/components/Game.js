@@ -91,7 +91,7 @@ const Game = ({ layout, mode }) => {
           <button onClick={reward.fetchSomeData} />
         </Reward>
 
-        <div style={{ margin: "0 40px 40px 40px" }}>
+        <div style={{ margin: "0 40px" }}>
           <a style={{ float: "left" }} href="javascript:void(0);" onClick={() => { 
             if(stepNumber) setStepNumber(stepNumber - 1);
           }} class="previous round">&#8249;</a>
