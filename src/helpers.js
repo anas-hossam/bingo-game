@@ -48,8 +48,8 @@ const calculateBingo = (squares, activeLines) => {
  * Randomize array using Durstenfeld shuffle algorithm
  * @param {Array} items
  */
-const getRandomCard = (items = card) => {
-  const itemsCopy = [...items];
+const getRandomCard = ({ items = card, mode }) => {
+  const itemsCopy = [...items[mode]];
   for (var i = itemsCopy.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var temp = itemsCopy[i];
@@ -58,7 +58,7 @@ const getRandomCard = (items = card) => {
   }
 
   // add empty sqaure at the middle of card
-  itemsCopy.splice(items.length / 2, 0, { name: "", is_active: true, is_bingo: true });
+  itemsCopy.splice(itemsCopy.length / 2, 0, { name: "", is_active: true, is_bingo: true });
 
   return itemsCopy;
 };

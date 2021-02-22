@@ -15,8 +15,8 @@ const styles = {
   listStyleType: "none",
 };
 
-const Game = ({ layout }) => {
-    const [history, setHistory] = useState([getRandomCard()]);
+const Game = ({ layout, mode }) => {
+    const [history, setHistory] = useState([getRandomCard({ mode })]);
     const [stepNumber, setStepNumber] = useState(0);
     const [bingoLines, setBingoLines] = useState({ "0": [] });
     const [reward, setReward] = useState({});

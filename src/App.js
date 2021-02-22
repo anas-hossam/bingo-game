@@ -12,9 +12,15 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const App = () => {
   const [gameCount, setGameCount] = useState(1);
+  const [conversationMode, setConversationMode] = useState(true);
   const [currentLayout, setCurrentLayout] = useState("desktop");
 
-  const activeGames = Array(gameCount).fill(true);
+  const activeGames = [...Array(gameCount).keys()];
+
+  const handleClick = () => {
+    setConversationMode(!conversationMode);
+    setGameCount(0);
+  };
 
   return (
     <div style={{ 
@@ -22,6 +28,26 @@ const App = () => {
       backgroundAttachment: "fixed",
       backgroundSize: "cover"
       }}>
+
+      <div style={{
+        float: "right",
+        margin: "55px"
+      }}>
+        <span style={{
+          fontFamily: "Monospace",
+          fontWeight: "900",
+          margin: "10px",
+          fontSize: "15px",
+          color: "#562175"
+        }}>
+          {conversationMode ? "Conversation" : "Basic"}
+        </span>
+        <label class="switch">
+          <input type="checkbox" onClick={handleClick} />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
       <button style={{
         fontFamily: "Monospace",
         height: "30px",
@@ -34,6 +60,7 @@ const App = () => {
         onClick={() => setGameCount(gameCount + 1)}>
           Add Card
       </button>
+
       <ResponsiveGridLayout
         layouts={getLayouts(activeGames)}
         onLayoutChange={() => {
@@ -49,7 +76,12 @@ const App = () => {
         isDraggable={false}
         isResizable={false}
         measureBeforeMount={false}>
-            {activeGames.map((_game, index) => <Game layout={currentLayout} key={index.toString()} />)}
+            {activeGames.map((_game, index) =>
+              <Game
+                layout={currentLayout}
+                mode={conversationMode ? "conversation" : "basic"}
+                key={index.toString()} />
+            )}
       </ResponsiveGridLayout>
     </div>
   );
