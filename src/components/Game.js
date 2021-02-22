@@ -1,3 +1,4 @@
+/* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import Reward from "react-rewards";
@@ -91,10 +92,10 @@ const Game = ({ layout, mode }) => {
         </Reward>
 
         <div style={{ margin: "0 40px 40px 40px" }}>
-          <a style={{ float: "left" }} href="#" onClick={() => { 
+          <a style={{ float: "left" }} href="javascript:void(0);" onClick={() => { 
             if(stepNumber) setStepNumber(stepNumber - 1);
           }} class="previous round">&#8249;</a>
-          <a style={{ float: "right" }} href="#" onClick={() => {
+          <a style={{ float: "right" }} href="javascript:void(0);" onClick={() => {
             if(stepNumber < history.length - 1) setStepNumber(stepNumber + 1);
           }} class="next round">&#8250;</a>
         </div>
