@@ -74,3 +74,47 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.active {
+  color: 'green';
+}
+
+.bingo {
+  animation: animateMe 0s .5s forwards;
+  border-radius: 8px;
+  border: "5px solid #706046";
+  background: gold;
+}
+
+@keyframes animateMe {
+  to {
+    border: "1px solid #706046";
+    border-radius: 1px;
+    background: #5a71b7;
+  }
+}

@@ -78,7 +78,7 @@ const App = () => {
         measureBeforeMount={false}>
             {activeGames.map((_game, index) =>
               <Game
-                layout={currentLayout}
+                layout={conversationMode ? currentLayout : "basic"}
                 mode={conversationMode ? "conversation" : "basic"}
                 key={index.toString()} />
             )}

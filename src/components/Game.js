@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import Reward from "react-rewards";
 
@@ -30,9 +31,9 @@ const Game = ({ layout, mode }) => {
         };
       })];
 
-      if (squares[i].is_active) return;
+      if (squares[i].isActive) return;
 
-      squares[i].is_active = true;
+      squares[i].isActive = true;
       setHistory([...timeInHistory, squares]);
       setStepNumber(timeInHistory.length);
 
@@ -43,12 +44,12 @@ const Game = ({ layout, mode }) => {
       if (stepNumber) bingoLinesCopy[stepNumber] = bingoLinesCopy[stepNumber - 1];
       setBingoLines(bingoLinesCopy);
 
-      const currentBoardStatus = squares.map(square => square.is_active);
+      const currentBoardStatus = squares.map(square => square.isActive);
       const bingo = calculateBingo(currentBoardStatus, bingoLinesCopy[stepNumber]);
 
       if (bingo) {
         bingo.line.map(index => {
-          squares[index].is_bingo = true;
+          squares[index].isBingo = true;
         });
 
         setHistory([...timeInHistory, squares]);
@@ -82,11 +83,22 @@ const Game = ({ layout, mode }) => {
         width: layout === "desktop" ? "60%" : "100%",
         height: "100%",
         }}>
+
         <Reward
           ref={(ref) => setReward(ref)}
           type="emoji">
           <button onClick={reward.fetchSomeData} />
         </Reward>
+
+        <div style={{ margin: "0 40px 40px 40px" }}>
+          <a style={{ float: "left" }} href="#" onClick={() => { 
+            if(stepNumber) setStepNumber(stepNumber - 1);
+          }} class="previous round">&#8249;</a>
+          <a style={{ float: "right" }} href="#" onClick={() => {
+            if(stepNumber < history.length - 1) setStepNumber(stepNumber + 1);
+          }} class="next round">&#8250;</a>
+        </div>
+
         <Board squares={history[stepNumber]} layout={layout} onClick={handleClick} />
         <div style={styles}>
           {renderMoves()}

@@ -58,7 +58,11 @@ const getRandomCard = ({ items = card, mode }) => {
   }
 
   // add empty sqaure at the middle of card
-  itemsCopy.splice(itemsCopy.length / 2, 0, { name: "", is_active: true, is_bingo: true });
+  itemsCopy.splice(
+    itemsCopy.length / 2,
+     0,
+     { name: "", isActive: true, isBingo: true },
+  );
 
   return itemsCopy;
 };

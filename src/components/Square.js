@@ -4,6 +4,7 @@ const FONT_SIZE_MAPPER = {
   desktop: "16px",
   tablet: "12px",
   mobile: "8px",
+  basic: "20px",
 };
 
 const style = {
@@ -27,15 +28,13 @@ const getStyle = (active, layout) => {
 const bingoStyle = layout => {
   return {
     ...style,
-    color: "#fbedba",
-    background: "gold",
     fontSize: FONT_SIZE_MAPPER[layout],
   };
 };
 
 const Square = ({ value, layout, onClick }) => (
-  <button style={
-    value.is_bingo ? bingoStyle(layout) : getStyle(value.is_active, layout)
+  <button className={value.isBingo && "bingo"} style={
+    value.isBingo ? bingoStyle(layout) : getStyle(value.isActive, layout)
     } onClick={onClick}>
     {value.name}
   </button>
