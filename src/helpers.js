@@ -1,5 +1,14 @@
 import card from "./constants/card";
 
+/**
+ * @description
+ * checks if squares values that have true value 
+ * matches any row or column or diagonal and not exist in active lines
+ * if no matches return false
+ * @param {Array<Boolean>} squares 
+ * @param {object} activeLines 
+ * @returns {object} winning line which contains line indexes and number
+ */
 const calculateBingo = (squares, activeLines) => {
   const squaresCopy = [...squares];
   // make middle sqaure always active
@@ -45,11 +54,13 @@ const calculateBingo = (squares, activeLines) => {
 };
 
 /**
+ * @description
  * Randomize array using Durstenfeld shuffle algorithm
  * @param {Array} items
+ * @returns randomized items
  */
-const getRandomCard = ({ items = card, mode }) => {
-  const itemsCopy = [...items[mode]];
+const randomize = items => {
+  const itemsCopy = [...items];
   for (var i = itemsCopy.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var temp = itemsCopy[i];
@@ -57,23 +68,38 @@ const getRandomCard = ({ items = card, mode }) => {
     itemsCopy[j] = temp;
   }
 
+  return itemsCopy;
+}
+
+/**
+ * @description
+ * get random card based on mode after putting
+ * empty sqaure at the middle of card 
+ */
+const getRandomCard = ({ items = card, mode }) => {
+  const randomizedItems = randomize([...items[mode]]);
   // add empty sqaure at the middle of card
-  itemsCopy.splice(
-    itemsCopy.length / 2,
+  randomizedItems.splice(
+    randomizedItems.length / 2,
      0,
      { name: "", isActive: true, isBingo: true },
   );
 
-  return itemsCopy;
+  return randomizedItems;
 };
 
+/**
+ * @description
+ * get layouts based on items length
+ * @param {Array.<number>} items
+ */
 const getLayouts = items => {
   return {
-    lg: items.map((_, index) => {
-      return { w: 0, h: 5, x: 0, y: 1000, i: `${index}` };
+    lg: items.map(item => {
+      return { w: 0, h: 5, x: 0, y: 1000, i: `${item}` };
     }),
-    xs: items.map((_, index) => {
-      return { w: 0, h: 6, x: 5, y: 5, i: `${index}` };
+    xs: items.map(item => {
+      return { w: 0, h: 6, x: 5, y: 5, i: `${item}` };
     }),
   }
 };
