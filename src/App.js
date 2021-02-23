@@ -29,34 +29,17 @@ const App = () => {
       backgroundSize: "cover"
       }}>
 
-      <div style={{
-        float: "right",
-        margin: "55px"
-        }}>
-        <span style={{
-          fontFamily: "Monospace",
-          fontWeight: "900",
-          margin: "10px",
-          fontSize: "15px",
-          color: "#562175"
-          }}>
+      <div className="switchWrapper">
+        <span className="switchText">
           {conversationMode ? "Conversation" : "Basic"}
         </span>
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" onClick={handleClick} />
-          <span class="slider round"></span>
+          <span className="slider round"></span>
         </label>
       </div>
 
-      <button style={{
-        fontFamily: "Monospace",
-        height: "30px",
-        fontWeight: "600",
-        fontSize: "15px",
-        alignItems: "center",
-        margin: "55px 40px",
-        color: "#562175",
-        }} 
+      <button className="cardButton" 
         onClick={() => setGameCount(gameCount + 1)}>
           Add Card
       </button>

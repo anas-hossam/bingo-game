@@ -7,16 +7,6 @@ import Board from "./Board";
 
 import { getRandomCard, calculateBingo } from "../helpers";
 
-const styles = {
-  width: "180px",
-  height: "120px",
-  margin: "20px auto",
-  overflowX: "hidden",
-  overflowY: "auto",
-  textAlign: "center",
-  listStyleType: "none",
-};
-
 const Game = ({ layout, mode }) => {
     const [history, setHistory] = useState([getRandomCard({ mode })]);
     const [stepNumber, setStepNumber] = useState(0);
@@ -87,17 +77,25 @@ const Game = ({ layout, mode }) => {
           <button onClick={reward.fetchSomeData} />
         </Reward>
 
-        <div style={{ margin: "0 40px" }}>
-          <a style={{ float: "left" }} href="javascript:void(0);" onClick={() => { 
-            if(stepNumber) setStepNumber(stepNumber - 1);
-          }} class="previous round">&#8249;</a>
-          <a style={{ float: "right" }} href="javascript:void(0);" onClick={() => {
-            if(stepNumber < history.length - 1) setStepNumber(stepNumber + 1);
-          }} class="next round">&#8250;</a>
+        <div className="paginationWrapper">
+          <a 
+            style={{ float: "left" }}
+            href="javascript:void(0);" 
+            onClick={() => { if(stepNumber) setStepNumber(stepNumber - 1); }}
+            className="previous round">
+            &#8249;
+          </a>
+          <a
+            style={{ float: "right" }}
+            href="javascript:void(0);"
+            onClick={() => { if(stepNumber < history.length - 1) setStepNumber(stepNumber + 1); }}
+            className="next round">
+            &#8250;
+          </a>
         </div>
 
         <Board squares={history[stepNumber]} layout={layout} onClick={handleClick} />
-        <div style={styles}>
+        <div className="gameMoves">
           {renderMoves()}
         </div>
       </div>

@@ -12,6 +12,43 @@ code {
     monospace;
 }
 
+/* card button */
+.cardButton {
+  font-family: Monospace;
+  height: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  align-items: center;
+  margin: 55px 40px;
+  color: #562175;
+}
+
+/* game moves */
+.gameMoves {
+  width: 180px;
+  height: 120px;
+  margin: 20px auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  list-style-type: none;
+}
+
+/* switch wrapper */
+.switchWrapper {
+  float: right;
+  margin: 55px;
+}
+
+/* swithc text */
+.switchText {
+  font-family: Monospace;
+  font-weight: 900;
+  margin: 10px;
+  font-size: 15px;
+  color: #562175;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -104,6 +141,12 @@ a:hover {
   color: 'green';
 }
 
+/* game pagination wrapper */
+.paginationWrapper {
+  margin: 0 40px;
+}
+
+/* sqaure animation */
 .bingo {
   animation: animateMe 0s .5s forwards;
   border-radius: 8px;
