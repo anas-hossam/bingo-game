@@ -26,11 +26,7 @@ const Game = ({ layout, mode }) => {
     const handleClick = i => {
       const timeInHistory = history.slice(0, stepNumber + 1);
       const current = timeInHistory[stepNumber];
-      const squares = [...current.map(square => {
-        return {
-          ...square
-        };
-      })];
+      const squares = [...current.map(square => { return { ...square }; })];
 
       if (squares[i].isActive) return;
 

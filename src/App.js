@@ -1,5 +1,5 @@
-import { Responsive, WidthProvider } from "react-grid-layout";
 import { useState } from "react";
+import { Responsive, WidthProvider } from "react-grid-layout";
 
 import Game from "./components/Game";
 
@@ -32,14 +32,14 @@ const App = () => {
       <div style={{
         float: "right",
         margin: "55px"
-      }}>
+        }}>
         <span style={{
           fontFamily: "Monospace",
           fontWeight: "900",
           margin: "10px",
           fontSize: "15px",
           color: "#562175"
-        }}>
+          }}>
           {conversationMode ? "Conversation" : "Basic"}
         </span>
         <label class="switch">
@@ -76,12 +76,13 @@ const App = () => {
         isDraggable={false}
         isResizable={false}
         measureBeforeMount={false}>
-            {activeGames.map((_game, index) =>
-              <Game
-                layout={conversationMode ? currentLayout : "basic"}
-                mode={conversationMode ? "conversation" : "basic"}
-                key={index.toString()} />
-            )}
+        {activeGames.map((_game, index) =>
+          <Game
+            layout={conversationMode ? currentLayout : "basic"}
+            mode={conversationMode ? "conversation" : "basic"}
+            key={index.toString()}
+          />
+        )}
       </ResponsiveGridLayout>
     </div>
   );

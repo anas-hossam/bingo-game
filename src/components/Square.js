@@ -33,9 +33,10 @@ const bingoStyle = layout => {
 };
 
 const Square = ({ value, layout, onClick }) => (
-  <button className={value.isBingo && "bingo"} style={
-    value.isBingo ? bingoStyle(layout) : getStyle(value.isActive, layout)
-    } onClick={onClick}>
+  <button
+    className={value.isBingo && "bingo"} 
+    style={value.isBingo ? bingoStyle(layout) : getStyle(value.isActive, layout)}
+    onClick={onClick}>
     {value.name}
   </button>
 );
