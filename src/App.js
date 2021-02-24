@@ -43,7 +43,7 @@ const App = () => {
       </div>
 
       <div class="dropdown" style={{ margin: "10px" }}>
-        <button class="dropbtn">Players Cards</button>
+    <button class="dropbtn">{players[activeGame]}</button>
         <div class="dropdown-content">
           {activeGames.map(game =>
             <a href="javascript:void(0);" onClick={() => setActiveGame(game)}>{players[game]}</a>)}
