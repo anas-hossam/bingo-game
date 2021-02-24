@@ -51,19 +51,21 @@ const App = () => {
       </div>
 
       <div style={{
-        width: currentLayout === "mobile" ? "90%" : "50%",
+        width: currentLayout === "mobile" ? "80%" : "50%",
         marginLeft: "60px",
         display: "inline-block",
       }}>
         <input
-          maxLength="13" 
+          maxLength="17" 
           type="text"
           value={playerName}
           onChange={e => setPlayerName(e.target.value)}
           placeholder="Player Name"
         />
 
-        <button className="cardButton" 
+        <button 
+          className="cardButton"
+          disabled={!playerName}
           onClick={() => {
             setGameCount(gameCount + 1);
             players[gameCount] = playerName;

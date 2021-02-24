@@ -80,14 +80,14 @@ const Game = ({ layout, mode, display }) => {
 
         <div className="paginationWrapper">
           <a 
-            style={{ float: "left" }}
+            style={{ float: "left", width: "20px", height: "20px" }}
             href="javascript:void(0);" 
             onClick={() => { if(stepNumber) setStepNumber(stepNumber - 1); }}
             className="previous round">
             &#8249;
           </a>
           <a
-            style={{ float: "right" }}
+            style={{ float: "right", width: "20px", height: "20px" }}
             href="javascript:void(0);"
             onClick={() => { if(stepNumber < history.length - 1) setStepNumber(stepNumber + 1); }}
             className="next round">

@@ -23,6 +23,13 @@ code {
   color: #562175;
 }
 
+.cardButton:disabled,
+.cardButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 /* game moves */
 .gameMoves {
   width: 180px;
@@ -162,7 +169,7 @@ a:hover {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -191,7 +198,7 @@ a:hover {
 
 /* Style player input text*/
 input[type=text] {
-  width: 33%;
+  width: 43%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
