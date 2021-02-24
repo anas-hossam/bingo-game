@@ -1,6 +1,6 @@
 import React from "react";
 
-import background from "../constants/images/emptySquare.jpg"
+import background from "../../constants/images/emptySquare.jpg"
 
 const style = {
   background: `url(${background})`,

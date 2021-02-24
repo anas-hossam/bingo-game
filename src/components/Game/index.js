@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import Reward from "react-rewards";
 
-import Board from "./Board";
+import "./styles.css"
 
-import { getRandomCard, calculateBingo } from "../helpers";
+import Board from "../Board";
+
+import { getRandomCard, calculateBingo } from "../../helpers";
 
 const Game = ({ layout, mode, display }) => {
     const [history, setHistory] = useState([getRandomCard({ mode })]);

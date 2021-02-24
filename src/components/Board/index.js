@@ -1,7 +1,7 @@
 import React from "react";
 
-import Square from "./Square";
-import EmptySquare from "./EmptySqaure";
+import Square from "../Sqaure";
+import EmptySquare from "../EmptySqaure";
 
 const style = {
   border: "4px solid #b09f78",

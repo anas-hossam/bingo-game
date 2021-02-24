@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 
-import Game from "./components/Game";
+import "./appStyles.css";
+
+import { Game, Switch, Dropdown, PlayerText, CardButton } from "./components";
 
 import { getLayouts } from "./helpers";
 
@@ -23,6 +25,7 @@ const App = () => {
   const handleClick = () => {
     setConversationMode(!conversationMode);
     setGameCount(0);
+    setPlayers({});
   };
 
   return (
@@ -32,48 +35,31 @@ const App = () => {
       backgroundSize: "cover"
       }}>
 
-      <div className="switchWrapper">
-        <span className="switchText">
-          {conversationMode ? "Conversation" : "Basic"}
-        </span>
-        <label className="switch">
-          <input type="checkbox" onClick={handleClick} />
-          <span className="slider round"></span>
-        </label>
-      </div>
-
-      <div class="dropdown" style={{ margin: "10px" }}>
-    <button class="dropbtn">{players[activeGame]}</button>
-        <div class="dropdown-content">
-          {activeGames.map(game =>
-            <a href="javascript:void(0);" onClick={() => setActiveGame(game)}>{players[game]}</a>)}
-        </div>
-      </div>
+      <Switch mode={conversationMode} onClick={handleClick} />
+      <Dropdown
+        playerName={players[activeGame]}
+        activeGames={activeGames}
+        setActiveGame={setActiveGame}
+        players={players}
+      />
 
       <div style={{
         width: currentLayout === "mobile" ? "80%" : "50%",
         marginLeft: "60px",
         display: "inline-block",
-      }}>
-        <input
-          maxLength="17" 
-          type="text"
-          value={playerName}
-          onChange={e => setPlayerName(e.target.value)}
-          placeholder="Player Name"
-        />
+        }}>
 
-        <button 
-          className="cardButton"
-          disabled={!playerName}
+        <PlayerText playerName={playerName} onClick={e => setPlayerName(e.target.value)} />
+        <CardButton
+          playerName={playerName}
+          text="Add Card" 
           onClick={() => {
             setGameCount(gameCount + 1);
             players[gameCount] = playerName;
             setPlayers(players);
             setPlayerName("");
-          }}>
-          Add Card
-        </button>
+          }}
+        />
       </div>
 
       <ResponsiveGridLayout

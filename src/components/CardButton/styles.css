@@ -1,0 +1,16 @@
+.cardButton {
+  font-family: Monospace;
+  height: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  align-items: center;
+  margin: 50px 10px;
+  color: #562175;
+}
+
+.cardButton:disabled,
+.cardButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

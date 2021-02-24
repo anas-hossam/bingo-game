@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./styles.css";
+
 const FONT_SIZE_MAPPER = {
   desktop: "14px",
   tablet: "12px",
