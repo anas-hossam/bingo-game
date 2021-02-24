@@ -8,7 +8,7 @@ const style = {
   borderRadius: "10px",
   width: "92%",
   height: "45%",
-  margin: "50px auto",
+  margin: "40px auto 10px auto",
   display: "grid",
   gridTemplate: "repeat(5, 1fr) / repeat(5, 1fr)",
 };

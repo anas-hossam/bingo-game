@@ -7,7 +7,7 @@ import Board from "./Board";
 
 import { getRandomCard, calculateBingo } from "../helpers";
 
-const Game = ({ layout, mode }) => {
+const Game = ({ layout, mode, display }) => {
     const [history, setHistory] = useState([getRandomCard({ mode })]);
     const [stepNumber, setStepNumber] = useState(0);
     const [bingoLines, setBingoLines] = useState({ "0": [] });
@@ -66,6 +66,7 @@ const Game = ({ layout, mode }) => {
 
     return (
       <div style={{
+        display: !display && "none",
         textAlign: "center",
         width: layout === "desktop" ? "60%" : "100%",
         height: "100%",

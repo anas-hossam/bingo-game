@@ -11,6 +11,9 @@ import otherBackground from "./constants/images/bingo2.jpg";
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const App = () => {
+  const [activeGame, setActiveGame] = useState(0);
+  const [players, setPlayers] = useState({ '0': 'host' });
+  const [playerName, setPlayerName] = useState("");
   const [gameCount, setGameCount] = useState(1);
   const [conversationMode, setConversationMode] = useState(true);
   const [currentLayout, setCurrentLayout] = useState("desktop");
@@ -39,10 +42,37 @@ const App = () => {
         </label>
       </div>
 
-      <button className="cardButton" 
-        onClick={() => setGameCount(gameCount + 1)}>
+      <div class="dropdown" style={{ margin: "10px" }}>
+        <button class="dropbtn">Players Cards</button>
+        <div class="dropdown-content">
+          {activeGames.map(game =>
+            <a href="javascript:void(0);" onClick={() => setActiveGame(game)}>{players[game]}</a>)}
+        </div>
+      </div>
+
+      <div style={{
+        width: currentLayout === "mobile" ? "90%" : "50%",
+        marginLeft: "60px",
+        display: "inline-block",
+      }}>
+        <input
+          maxLength="13" 
+          type="text"
+          value={playerName}
+          onChange={e => setPlayerName(e.target.value)}
+          placeholder="Player Name"
+        />
+
+        <button className="cardButton" 
+          onClick={() => {
+            setGameCount(gameCount + 1);
+            players[gameCount] = playerName;
+            setPlayers(players);
+            setPlayerName("");
+          }}>
           Add Card
-      </button>
+        </button>
+      </div>
 
       <ResponsiveGridLayout
         layouts={getLayouts(activeGames)}
@@ -59,11 +89,12 @@ const App = () => {
         isDraggable={false}
         isResizable={false}
         measureBeforeMount={false}>
-        {activeGames.map((_game, index) =>
+        {activeGames.map(game =>
           <Game
+            display={game === activeGame}
             layout={conversationMode ? currentLayout : "basic"}
             mode={conversationMode ? "conversation" : "basic"}
-            key={index.toString()}
+            key={game.toString()}
           />
         )}
       </ResponsiveGridLayout>
