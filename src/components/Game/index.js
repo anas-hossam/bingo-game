@@ -14,6 +14,7 @@ const Game = ({ layout, mode, display }) => {
     const [stepNumber, setStepNumber] = useState(0);
     const [bingoLines, setBingoLines] = useState({ "0": [] });
     const [reward, setReward] = useState({});
+    const [score, setScore] = useState(0);
 
     const handleClick = i => {
       const timeInHistory = history.slice(0, stepNumber + 1);
@@ -37,6 +38,7 @@ const Game = ({ layout, mode, display }) => {
       const bingo = calculateBingo(currentBoardStatus, bingoLinesCopy[stepNumber]);
 
       if (bingo) {
+        setScore(score + 100);
         bingo.line.map(index => {
           squares[index].isBingo = true;
         });
@@ -79,6 +81,11 @@ const Game = ({ layout, mode, display }) => {
           type="emoji">
           <button onClick={reward.fetchSomeData} />
         </Reward>
+
+        <div className="scoreWrapper">
+          <span className="scoreText" >Score</span>
+          <input id="score" readOnly className="scoreNumber" type="text" value={score} />
+        </div>
 
         <div className="paginationWrapper">
           <a 
