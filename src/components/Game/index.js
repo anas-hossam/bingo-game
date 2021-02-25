@@ -54,6 +54,7 @@ const Game = ({ layout, mode, display }) => {
     };
 
     const jumpTo = move => {
+      if(move === 0) setScore(0);
       setStepNumber(move);
     };
 
