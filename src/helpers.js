@@ -7,9 +7,10 @@ import card from "./constants/card";
  * if no matches return false
  * @param {Array<Boolean>} squares 
  * @param {object} activeLines 
- * @returns {object} winning line which contains line indexes and number
+ * @returns {object} winning lines which contains lines indexes and numbers
  */
 const calculateBingo = (squares, activeLines) => {
+  const result = { lines: [], lineNumbers: [] };
   const squaresCopy = [...squares];
   // make middle sqaure always active
   squaresCopy[12] = true;
@@ -43,14 +44,12 @@ const calculateBingo = (squares, activeLines) => {
       squaresCopy[a] === squaresCopy[d] &&
       squaresCopy[a] === squaresCopy[e]
     ) {
-      return {
-        line: lines[i],
-        lineNumber: i
-      };
+      result.lines.push(lines[i]);
+      result.lineNumbers.push(i);
     }
   }
 
-  return null;
+  return result.lines.length ? result : null;
 };
 
 /**

@@ -38,15 +38,17 @@ const Game = ({ layout, mode, display }) => {
       const bingo = calculateBingo(currentBoardStatus, bingoLinesCopy[stepNumber]);
 
       if (bingo) {
-        setScore(score + 100);
-        bingo.line.map(index => {
-          squares[index].isBingo = true;
-        });
+        setScore(score + (100 * bingo.lines.length));
+        bingo.lines.forEach(line => 
+          line.forEach(index => {
+            squares[index].isBingo = true;
+          })
+        );
 
         setHistory([...timeInHistory, squares]);
         setBingoLines({
           ...bingoLinesCopy,
-          [stepNumber]: [...bingoLinesCopy[stepNumber], bingo.lineNumber]
+          [stepNumber]: [...bingoLinesCopy[stepNumber], ...bingo.lineNumbers]
         });
 
         reward.rewardMe();
